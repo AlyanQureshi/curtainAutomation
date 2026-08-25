@@ -1,0 +1,15 @@
+[Unit]
+Description=Curtain Controller
+After=network-online.target mosquitto.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=alyan-pi1
+WorkingDirectory=/home/alyan-pi1/personalProjects
+ExecStart=/usr/bin/python3 /home/alyan-pi1/personalProjects/curtainProgram.py
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
